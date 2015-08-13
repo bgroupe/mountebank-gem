@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Mountebank::Helper do
+RSpec.describe PkMb::Helper do
   describe '.symbolize' do
     let(:hash) { {
         "foo" => {"bar" => "Baz"},
@@ -14,7 +14,7 @@ RSpec.describe Mountebank::Helper do
     }
 
     it 'symbolizes' do
-      expect(Mountebank::Helper.symbolize(hash)).to eq expected_hash
+      expect(PkMb::Helper.symbolize(hash)).to eq expected_hash
     end
   end
 end

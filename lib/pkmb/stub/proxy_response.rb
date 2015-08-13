@@ -1,4 +1,4 @@
-class Mountebank::Stub::ProxyResponse < Mountebank::Stub::Response
+class PkMb::Stub::ProxyResponse < PkMb::Stub::Response
   PROXY_MODE_ONCE = 'proxyOnce'
   PROXY_MODE_ALWAYS = 'proxyAlways'
 

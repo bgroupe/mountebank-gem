@@ -1,8 +1,8 @@
 require 'spec_helper'
-require 'mountebank/network'
+require 'pkmb/network'
 
-RSpec.describe Mountebank::Network do
-  subject{ Mountebank::Network }
+RSpec.describe PkMb::Network do
+  subject{ PkMb::Network }
   describe '.mountebank_server_uri' do
     it 'returns correct uri' do
       expect(subject.mountebank_server_uri).to eq 'http://127.0.0.1:2525'

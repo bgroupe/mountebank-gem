@@ -1,4 +1,4 @@
-class Mountebank::Stub::TcpResponse < Mountebank::Stub::Response
+class PkMb::Stub::TcpResponse < PkMb::Stub::Response
   def self.create(data='')
     payload = {}
     payload[:data] = data unless data.empty?

@@ -1,7 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 
-module Mountebank
+module PkMb
   class Network
     def self.connection
       @conn ||= Faraday.new(url: mountebank_server_uri) do |conn|

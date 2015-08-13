@@ -1,4 +1,4 @@
-class Mountebank::Stub::Response
+class PkMb::Stub::Response
   attr_accessor :is, :proxy, :inject
 
   def initialize(data={})

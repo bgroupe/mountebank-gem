@@ -1,4 +1,4 @@
-module Mountebank
+module PkMb
   class Imposter
     attr_reader :port, :protocol, :name, :stubs, :requests, :matches, :mode
 
@@ -28,7 +28,7 @@ module Mountebank
       raise 'Invalid protocol' unless PROTOCOLS.include?(protocol)
 
       data = {port: port, protocol: protocol}.merge(options)
-      Mountebank::Imposter.new(data)
+      PkMb::Imposter.new(data)
     end
 
     def save!
@@ -45,7 +45,7 @@ module Mountebank
 
     def self.find(port)
       imposter_data = Imposter.get_imposter_config(port)
-      return Mountebank::Imposter.new(imposter_data) unless imposter_data.empty?
+      return PkMb::Imposter.new(imposter_data) unless imposter_data.empty?
 
       false
     end
@@ -71,17 +71,17 @@ module Mountebank
 
       if response.is_a? Array
         responses = response
-      elsif response.is_a? Mountebank::Stub::Response
+      elsif response.is_a? PkMb::Stub::Response
         responses << response
       end
 
       if predicate.is_a? Array
         predicates = predicate
-      elsif predicate.is_a? Mountebank::Stub::Predicate
+      elsif predicate.is_a? PkMb::Stub::Predicate
         predicates << predicate
       end
 
-      @stubs << Mountebank::Stub.create(responses, predicates)
+      @stubs << PkMb::Stub.create(responses, predicates)
     end
 
     def replayable_data
@@ -94,6 +94,11 @@ module Mountebank
 
     def to_json(*args)
       serializable_hash.to_json(*args)
+    end
+
+    def stub_reset!
+      delete!
+      @stubs = []
     end
 
     private
@@ -120,7 +125,7 @@ module Mountebank
       @stubs = []
       if data[:stubs].respond_to?(:each)
         data[:stubs].each do |stub|
-          stub = Mountebank::Stub.new(stub) unless stub.is_a? Mountebank::Stub
+          stub = PkMb::Stub.new(stub) unless stub.is_a? PkMb::Stub
           @stubs << stub
         end
       end
@@ -128,5 +133,6 @@ module Mountebank
       @matches = data[:matches] || []
       @mode = data[:mode] || nil
     end
+
   end
 end

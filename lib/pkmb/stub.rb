@@ -1,4 +1,4 @@
-class Mountebank::Stub
+class PkMb::Stub
   attr_reader :responses, :predicates
 
   def initialize(data={})
@@ -27,8 +27,8 @@ class Mountebank::Stub
 
     if data[:responses]
       data[:responses].each do |response|
-        unless response.is_a? Mountebank::Stub::Response
-          response = Mountebank::Stub::Response.new(response)
+        unless response.is_a? PkMb::Stub::Response
+          response = PkMb::Stub::Response.new(response)
         end
         @responses << response
       end
@@ -36,8 +36,8 @@ class Mountebank::Stub
 
     if data[:predicates]
       data[:predicates].each do |predicate|
-        unless predicate.is_a? Mountebank::Stub::Predicate
-          predicate = Mountebank::Stub::Predicate.new(predicate)
+        unless predicate.is_a? PkMb::Stub::Predicate
+          predicate = PkMb::Stub::Predicate.new(predicate)
         end
         @predicates << predicate
       end

@@ -1,6 +1,6 @@
 require 'faraday'
 
-module Mountebank
+module PkMb
   class Helper
     # Convert Ruby Hash keys into symbols
     # Source: https://gist.github.com/Integralist/9503099
@@ -34,6 +34,6 @@ module Mountebank
   end
 
   if ::Faraday::Middleware.respond_to? :register_middleware
-    ::Faraday::Response.register_middleware :symbolize_keys => lambda { Mountebank::SymbolizeKeys }
+    ::Faraday::Response.register_middleware :symbolize_keys => lambda { PkMb::SymbolizeKeys }
   end
 end

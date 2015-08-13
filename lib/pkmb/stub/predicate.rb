@@ -1,4 +1,4 @@
-class Mountebank::Stub::Predicate
+class PkMb::Stub::Predicate
   attr_accessor :equals, :deepEquals, :contains, :startsWith, :endsWith, :matches, :exists, :not, :or, :and, :inject, :caseSensitive, :except
 
   VALID_OPERATORS = [

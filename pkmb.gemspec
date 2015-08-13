@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'mountebank/version'
+require 'pkmb/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mountebank"
-  spec.version       = Mountebank::VERSION
-  spec.authors       = ["Michael Cheng"]
-  spec.email         = ["mcheng.work@gmail.com"]
+  spec.name          = "pkmb"
+  spec.version       = PkMb::VERSION
+  spec.authors       = ["Michael Cheng", "Casey Guerrero"]
+  spec.email         = ["casey@peek"]
   spec.summary       = %q{Ruby GEM to manage a Mountebank Test Server}
   spec.description   = %q{A simple Ruby library that lets you manage your Mountebank test server.}
-  spec.homepage      = "https://github.com/CoderKungfu/mountebank-gem"
+  spec.homepage      = "https://github.com/gadabout/pkmb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

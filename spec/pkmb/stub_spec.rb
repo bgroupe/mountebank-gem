@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-RSpec.describe Mountebank::Stub do
+RSpec.describe PkMb::Stub do
   let(:responses) { [] }
   let(:predicates) { [] }
-  let(:stub) { Mountebank::Stub.create(responses, predicates) }
+  let(:stub) { PkMb::Stub.create(responses, predicates) }
 
   describe '#initialize' do
     it 'creates a new object' do
-      expect(stub).to be_a Mountebank::Stub
+      expect(stub).to be_a PkMb::Stub
       expect(stub.responses).to eq []
       expect(stub.predicates).to eq []
       expect(stub.to_json).to eq '{}'
@@ -27,7 +27,7 @@ RSpec.describe Mountebank::Stub do
     end
 
     it 'is a response' do
-      expect(stub.responses.first).to be_a Mountebank::Stub::Response
+      expect(stub.responses.first).to be_a PkMb::Stub::Response
       expect(stub.responses.first.is[:statusCode]).to eq 200
     end
 
@@ -49,7 +49,7 @@ RSpec.describe Mountebank::Stub do
     end
 
     it 'is a predicate' do
-      expect(stub.predicates.first).to be_a Mountebank::Stub::Predicate
+      expect(stub.predicates.first).to be_a PkMb::Stub::Predicate
       expect(stub.predicates.first.equals[:path]).to eq('/test')
     end
 

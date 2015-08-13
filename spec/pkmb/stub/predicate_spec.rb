@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Mountebank::Stub::Predicate do
+RSpec.describe PkMb::Stub::Predicate do
   let(:data) { {} }
-  let(:predicate) { Mountebank::Stub::Predicate.new(data) }
+  let(:predicate) { PkMb::Stub::Predicate.new(data) }
 
   describe '#initialize' do
     it 'creates a new object' do

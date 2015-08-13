@@ -1,4 +1,3 @@
-source 'https://rubygems.org'
+source 'http://gems.peek.com'
 
-# Specify your gem's dependencies in mountebank.gemspec
 gemspec

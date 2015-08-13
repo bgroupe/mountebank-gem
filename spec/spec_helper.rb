@@ -1,11 +1,11 @@
-require 'mountebank'
+require 'pkmb'
 require 'dotenv'
 require 'pry'
 require 'open-uri'
 Dotenv.load
 
 def reset_mountebank
-  Mountebank.reset
+  PkMb.reset
 end
 
 def test_url(uri)

@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Mountebank::Stub::Response do
+RSpec.describe PkMb::Stub::Response do
   let(:data) { {} }
-  let(:response) { Mountebank::Stub::Response.new(data) }
+  let(:response) { PkMb::Stub::Response.new(data) }
 
   describe '#initialize' do
     it 'creates a new object' do
@@ -25,7 +25,7 @@ RSpec.describe Mountebank::Stub::Response do
 
   context '.with_injection' do
     let(:data) { 'function (request, state, logger){}' }
-    let(:response) { Mountebank::Stub::Response.with_injection(data) }
+    let(:response) { PkMb::Stub::Response.with_injection(data) }
 
     it 'is valid' do
       expect(response.inject).to eq(data)

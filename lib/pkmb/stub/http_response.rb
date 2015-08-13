@@ -1,4 +1,4 @@
-class Mountebank::Stub::HttpResponse < Mountebank::Stub::Response
+class PkMb::Stub::HttpResponse < PkMb::Stub::Response
   def self.create(statusCode=200, headers={}, body='')
     payload = {}
     payload[:statusCode] = statusCode
